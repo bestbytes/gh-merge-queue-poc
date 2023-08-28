@@ -26,7 +26,7 @@ describe('Fetching data from OpenWeatherMap', function(){
                 minTemp: 16,
                 maxTemp: 19,
                 rainFall: 0,
-                cloudCover: 75
+                cloudCover: 40
             });
             done();
         });
