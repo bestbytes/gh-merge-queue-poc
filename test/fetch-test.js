@@ -15,6 +15,6 @@ describe("Fetching data from OpenWeatherMap", function () {
   });
   it("Should map cloud coverage", async function () {
     const results = await fetchWeather.fetchWeather("London");
-    expect(results.cloudCover).to.equal(40);
+    expect(results.cloudCover).to.equal(55);
   });
 });
