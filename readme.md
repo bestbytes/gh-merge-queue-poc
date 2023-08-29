@@ -60,12 +60,12 @@ The actions page shows order of actions:
 
 1. tmp branch `gh-readonlhy-queue/main/pr..` branch is created
 2. PR #3 is merged into the tmp branch, status checks pass
-3. PR #3 gets merged into `main`
+3. PR #3 gets merged into `main` (as defined by Minimum PRs)
 4. tmp branch `gh-readonlhy-queue/main..` branch is (most likely) again created
 5. PR #4 is merged into the tmp branch, status checks pass
 6. PR #4 gets merged into `main`
 
-This behaviour is controller by _Minimum pull requests to merge_, if it had been 2, then both PRs would've been merged into tmp branch before mering into `main`.
+This behaviour is controller by _Minimum pull requests to merge_, if it had been 2, then both PRs would've been merged into tmp branch before mering each into `main`.
 
 If status checks fail, **that PR will be left out* and the queue will proceed
 merging the remaning PRs. Here's a demo with 3 PRs where status checks fail for 
@@ -83,10 +83,14 @@ the second one:
     ![status-fail-6](./images/status-fail-6.png)
 5. That's **not indicated in any way** on the PR page:
     ![status-fail-7](./images/status-fail-7.png)
-7. and can only be found in the CI/CD (Github Actions in this case):
+6. and can be found in the CI/CD (Github Actions in this case):
     ![status-fail-8](./images/status-fail-8.png)
+7. or with email notifications if enabled:
+    ![status-fail-9](./images/status-fail-9.png)
+
 
 From the actions page it follows (assuming no clock skew):
+
 1. tmp branch `gh-readonlhy-queue/main..` branch is created
 2. PR #5 is merged into the tmp branch, status checks pass
 4. PR #6 is merged into the tmp branch, status checks fail
@@ -94,6 +98,20 @@ From the actions page it follows (assuming no clock skew):
 6. tmp branch `gh-readonlhy-queue/main..` branch is (most likely) again created
 7. PR #7 is merged into the tmp branch, status checks pass
 8. PR #7 gets merged into `main`
+
+
+Let's update "Minimum pull requests to merge" to 2 and open two PRs:
+
+1. Enqueue the first PR
+    ![minimum-two-1](./images/minimum-two-1.png)
+2. It gets merged into tmp and checked, but not merged into `main` (unless 5min go by)
+    ![minimum-two-2](./images/minimum-two-2.png)
+3. Enqueue the second PR
+    ![minimum-two-3](./images/minimum-two-3.png)
+4. The second gets merged into tmp branch and status checks pass
+    ![minimum-two-4](./images/minimum-two-4.png)
+5. Finally both get merged into main
+    ![minimum-two-5](./images/minimum-two-5.png)
 
 
 ## Open questions
