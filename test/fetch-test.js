@@ -13,4 +13,8 @@ describe("Fetching data from OpenWeatherMap", function () {
     expect(results.maxTemp).to.equal(17);
     expect(results.minTemp).to.equal(14);
   });
+  it("Should map cloud coverage", async function () {
+    const results = await fetchWeather.fetchWeather("London");
+    expect(results.cloudCover).to.equal(55);
+  });
 });
