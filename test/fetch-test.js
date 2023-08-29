@@ -7,7 +7,7 @@ var fetchWeather = require("../fetch-weather");
 var rawWeatherData = require("../test-data/sample-weather-raw.json");
 
 describe("Fetching data from OpenWeatherMap", function () {
-  it("Should parse open weather response", async function () {
+  it("Should convert Fahrenheit to Celsius", async function () {
     sinon.stub(axios, "get").resolves({ data: rawWeatherData });
     const results = await fetchWeather.fetchWeather("London");
     expect(results).to.deep.equal({
