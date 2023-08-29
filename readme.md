@@ -9,6 +9,11 @@ The app pulls current weather data from OpenWeatherMap for a location.
 
 ---
 
+# Merge Queue
+
+There is a single queue (at the moment) per repo. 
+
+
 ### Running
 
 - `npm start` will run the main file (app.js) and display results for Berlin
