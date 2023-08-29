@@ -6,6 +6,14 @@
 This repo is used to discover how [Github merge queues](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) work by using a simple node.js project and Github Actions for CI.
 The app pulls current weather data from OpenWeatherMap for a location.
 
+# NOTE
+
+Github merge queues are **only available for org accounts**:
+ - **any public repo**
+ - **private** repos on the **Enterprise plan**
+
+![availability.png](./images/availability.png)
+
 ---
 ### Running
 
